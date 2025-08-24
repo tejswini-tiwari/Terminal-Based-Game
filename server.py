@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-"""
-Tic-Tac-Toe Server (accepts 2 clients)
-Usage: python3 server.py [port]
-Default port: 65432
-"""
+
 import socket, json, sys
 
 def send_json(sock, obj):
@@ -108,6 +103,7 @@ def main():
                 break
 
             # check draw
+            
             if board_full(board):
                 for c in clients:
                     send_json(c['sock'], {'type': 'state', 'board': board, 'turn': None, 'status': 'finished', 'result': 'draw'})
