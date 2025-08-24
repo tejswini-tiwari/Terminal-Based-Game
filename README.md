@@ -1,82 +1,131 @@
-Tic-Tac-Toe (Network Multiplayer)
+# 🎮 Terminal Tic-Tac-Toe (Multiplayer)
 
-This is a simple two-player Tic-Tac-Toe game that works over a network.
-One program acts as the server (the game host), and two people can connect as clients to play against each other.
+[![Python](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
+[![Contributors](https://img.shields.io/badge/Contributors-2-orange)](https://github.com/<your-username>/terminal-tic-tac-toe/graphs/contributors)
 
-It uses:
+A **real-time, terminal-based multiplayer Tic-Tac-Toe game** built with Python sockets and JSON messaging. Play locally on the same machine or over a network with your friends!
 
-Python sockets (TCP) → for reliable communication between players.
+![Gameplay Demo](assets/demo.gif)
+*Gameplay illustration (replace with actual GIF or screenshot)*
 
-Curses library → for a nice terminal-based game board on the client side.
+---
 
-JSON messages → so server and clients can talk in a structured way.
+## 🚀 Features
 
-How it Works
+* Real-time multiplayer gameplay with two players
+* Automatic player mark assignment (`X` / `O`)
+* Input validation (1-9 positions, occupied cells handled)
+* Win/draw detection
+* Handles player disconnects gracefully
+* ASCII-based board display for terminal fun
 
-The server waits for two players to connect.
+---
 
-Each player is assigned a symbol: X or O.
+## 💻 Installation
 
-Players take turns making moves.
+Clone the repository:
 
-The server checks if someone has won or if the game is a draw.
+```bash
+git clone https://github.com/<your-username>/terminal-tic-tac-toe.git
+cd terminal-tic-tac-toe
+```
 
-The board updates on both clients after every move.
+### Run Locally (Same Computer)
 
-Requirements
+1. Open **two terminal windows**.
+2. Start the server:
 
-Python 3.x
+```bash
+python server.py 65432
+```
 
-Works on Linux, Mac, and Windows (Windows needs a terminal that supports curses, like Git Bash or WSL).
+3. Start **two clients** (in separate terminals):
 
-Setup
+```bash
+python client.py 127.0.0.1 65432
+```
 
-Clone or download the files. You should have:
+### Run Over Network
 
-server.py → runs the server
+1. Start the server on a host machine:
 
-client.py → runs the player interface
+```bash
+python server.py 65432
+```
 
-Running the Game
+2. Other players connect from their machines:
 
-Start the server (in one terminal):
+```bash
+python client.py <SERVER_IP> 65432
+```
 
-python3 server.py
+---
+
+## 🎮 How to Play
+
+* Board positions are numbered **1–9**:
+
+```
+ 1 | 2 | 3
+---+---+---
+ 4 | 5 | 6
+---+---+---
+ 7 | 8 | 9
+```
+
+* Enter a number (1-9) to place your mark.
+* Enter `q` or `quit` to exit the game.
+* The server automatically checks for **wins or draw** and announces the result.
+
+---
+
+## 🛠️ Contributing
+
+We welcome contributions! Follow these steps to raise a pull request:
+
+1. **Fork** the repository.
+2. **Clone** your fork:
+
+```bash
+git clone https://github.com/<your-username>/terminal-tic-tac-toe.git
+```
+
+3. **Create a branch**:
+
+```bash
+git checkout -b feature/new-feature
+```
+
+4. Make your changes and **commit**:
+
+```bash
+git add .
+git commit -m "Add feature: <feature description>"
+```
+
+5. **Push** your branch:
+
+```bash
+git push origin feature/new-feature
+```
+
+6. Open a **pull request** on the original repository.
+
+---
+
+## 📈 Roadmap (Future Enhancements)
+
+* Add **AI opponent** for single-player mode
+* Support **more than two players** with larger boards
+* Add **score tracking** and game history
+* Add **color-coded terminal board** for better visuals
+
+---
+
+## 🙏 Acknowledgements
+
+* Inspired by classic Tic-Tac-Toe games.
+* Thanks to the Python community for socket programming examples.
 
 
-By default, it runs on port 65432.
-You can also pick a port:
 
-python3 server.py 5000
-
-
-Start two clients (in separate terminals):
-
-python3 client.py
-
-
-The first client will be assigned X
-
-The second client will be assigned O
-
-Play!
-
-Controls
-
-Arrow keys / WASD → Move selection around the board
-
-Enter / Return → Place your mark
-
-Numbers 1–9 → Quick move (corresponds to board positions)
-
-q → Quit game
-
-n → Start a new game (after one finishes)
-
-Game Rules
-
-X always starts first
-
-You win by placing 3 of your marks in a row (horizontally, vertically, or diagonally)
-
-If the board fills with no winner → it’s a draw
