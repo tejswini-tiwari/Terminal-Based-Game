@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-"""
-Tic-Tac-Toe Client
-Usage: python3 client.py SERVER_IP [PORT]
-Default port: 65432
-"""
+
 import socket, json, sys
 
 def send_json(sock, obj):
