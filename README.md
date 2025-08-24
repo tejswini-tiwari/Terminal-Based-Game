@@ -6,7 +6,7 @@
 A **real-time, terminal-based multiplayer Tic-Tac-Toe game** built with Python sockets and JSON messaging. Play locally on the same machine or over a network with your friends!
 
 ![Gameplay Demo](assets/demo.gif)
-*Gameplay illustration (replace with actual GIF or screenshot)*
+
 
 ---
 
