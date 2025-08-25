@@ -1,0 +1,6 @@
+# requirements.txt
+
+# No external libraries required.
+# The project runs on Python's standard library (socket, sys, threading, time).
+# For Windows users who want curses support (optional for terminal graphics):
+windows-curses; sys_platform == 'win32'
